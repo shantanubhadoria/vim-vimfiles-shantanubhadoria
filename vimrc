@@ -1,4 +1,26 @@
-set nocompatible 		" Use Vimproved featureset
+set nocompatible              " be iMproved
+filetype off                  " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle 
+" required! 
+Bundle 'gmarik/vundle'
+
+" " My bundles here:
+Bundle 'shantanubhadoria/vimfiles-shantanubhadoria'
+Bundle 'vim-perl/vim-perl'
+filetype plugin indent on     " required!
+"
+"" Brief help
+" :BundleList          - list configured bundles " :BundleInstall(!)    -
+" install (update) bundles " :BundleSearch(!) foo - search (or refresh cache
+" first) for foo " :BundleClean(!)      - confirm (or auto-approve) removal of
+" unused bundles " " see :h vundle for more details or wiki for FAQ " NOTE:
+" comments after Bundle commands are not allowed.
+
+" Fix number of colors for xterm
 
 set history=256  		" Number of things to remember in history
 set clipboard+=unnamed  	" Yanks go to clipboard
@@ -22,9 +44,9 @@ let g:is_posix = 1             	" vim's default is archaic bourne shell, bring i
 
 set formatoptions+=tc          	" Autowrap text and comments using textwidth
 set formatoptions+=r          	" Do not automatically insert a comment leader after an enter
-set formatoptions+=a          	" Automatic formatting of paragraphs.  Every time text is inserted or deleted the paragraph will be reformatted.  See |auto-format|. When the 'c' flag is present this only happens for recognized comments. 
+set formatoptions+=a          	" Automatic formatting of paragraphs. Every time text is inserted or deleted the paragraph will be reformatted.  See |auto-format|. When the 'c' flag is present this only happens for recognized comments 
 set formatoptions+=o          	" Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
-set textwidth=80
+set textwidth=72
 				" for all formatoptions table http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
 
 
@@ -62,11 +84,31 @@ set stl+=%-14.(%l,%c%V%)\ %P
 
 set foldenable                " Turn on folding
 set foldmethod=marker         " Fold on the marker
-set foldlevel=100             " Don't autofold anything (but I can still fold manually)
+set foldlevel=0             " Don't autofold anything (but I can still fold manually)
 set foldopen=block,hor,tag    " what movements open folds
 set foldopen+=percent,mark
 set foldopen+=quickfix
+let perl_fold=1                                                                                                                                                       
+let perl_nofold_packages=1
+let c_no_comment_fold=1
+" let perl_include_pod=1
+let g:omni_sql_no_default_maps=1
+
 
 set virtualedit=block
 
-filetype plugin indent on
+if &term =~ "xterm" || &term =~ "256color"                                                                                                                                
+  set t_Co=256
+  if has('gui')
+    colorscheme desert
+  else
+    colorscheme shantanubhadoria 
+    let g:CSApprox_loaded=1
+    let g:CSApprox_verbose_level=0
+  endif
+endif
+
+set cursorline                  " Highlight the cursor line
+set nu
+
+
