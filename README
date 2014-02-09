@@ -1,0 +1,4 @@
+e VUNDLE TO install the package.
+enter ths into your vimrc after the Vundle setup lines
+
+Bundle 'shantanubhadoria/vimfiles-shantanubhadoria'
