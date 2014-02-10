@@ -9,8 +9,10 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " " My bundles here:
-Bundle 'shantanubhadoria/vimfiles-shantanubhadoria'
+Bundle 'shantanubhadoria/vim-vimfiles-shantanubhadoria'
 Bundle 'vim-perl/vim-perl'
+Bundle 'Align'
+Bundle 'tpope/vim-fugitive'
 filetype plugin indent on     " required!
 "
 "" Brief help
