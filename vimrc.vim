@@ -13,6 +13,10 @@ Bundle 'shantanubhadoria/vim-vimfiles-shantanubhadoria'
 Bundle 'vim-perl/vim-perl'
 Bundle 'Align'
 Bundle 'tpope/vim-fugitive'
+Plugin 'mattn/emmet-vim'
+
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -46,9 +50,9 @@ set incsearch                  	" show matches while typing
 
 let g:is_posix = 1             	" vim's default is archaic bourne shell, bring it up to the 90s
 
-set formatoptions+=tc          	" Autowrap text and comments using textwidth
+set formatoptions+=c          	" Autowrap text and comments using textwidth
 set formatoptions+=r          	" Do not automatically insert a comment leader after an enter
-set formatoptions+=a          	" Automatic formatting of paragraphs. Every time text is inserted or deleted the paragraph will be reformatted.  See |auto-format|. When the 'c' flag is present this only happens for recognized comments 
+"set formatoptions+=a          	" Automatic formatting of paragraphs. Every time text is inserted or deleted the paragraph will be reformatted.  See |auto-format|. When the 'c' flag is present this only happens for recognized comments 
 set formatoptions+=o          	" Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
 set textwidth=72
 				" for all formatoptions table http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
@@ -116,3 +120,5 @@ set cursorline                  " Highlight the cursor line
 set nu
 
 
+filetype indent on
+let g:netrw_liststyle=3
